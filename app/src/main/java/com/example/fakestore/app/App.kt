@@ -1,18 +1,23 @@
 package com.example.fakestore.app
 
 import android.app.Application
-import com.example.domain.AuthRepository
-import com.example.fakestore.DaggerAppComponent
+import com.example.domain.repositories.ProductsRepository
+import com.example.fakestore.di.AppComponent
+import com.example.fakestore.di.DaggerAppComponent
 import javax.inject.Inject
 
-class App: Application() {
+class App : Application() {
 
     @Inject
-    lateinit var authRepository: AuthRepository
+    lateinit var productsRepository: ProductsRepository
+
+    lateinit var appComponent: AppComponent
+        private set
 
     override fun onCreate() {
         super.onCreate()
-        DaggerAppComponent.create().inject(this)
-        authRepository.login()
+
+        appComponent = DaggerAppComponent.create()
+        appComponent.inject(this)
     }
 }

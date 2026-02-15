@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.data"
+    namespace = "com.example.core_network"
     compileSdk {
         version = release(36)
     }
@@ -30,6 +30,7 @@ android {
         sourceCompatibility = JavaVersion.VERSION_11
         targetCompatibility = JavaVersion.VERSION_11
     }
+
 }
 kotlin {
     compilerOptions {
@@ -44,14 +45,15 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
 
-    api(project(":domain"))
     implementation(project(":core"))
-    implementation(project(":core-network"))
-    //dagger
-    implementation(libs.dagger)
-    kapt(libs.dagger.compiler)
-    implementation(libs.retrofit)
-    implementation(libs.retrofit.converter.gson)
 
-    implementation(libs.gson)
+    api(libs.retrofit)
+    api(libs.retrofit.converter.gson)
+
+    api(libs.okhttp)
+    api(libs.okhttp.logging)
+
+    //dagger
+    api(libs.dagger)
+    kapt(libs.dagger.compiler)
 }

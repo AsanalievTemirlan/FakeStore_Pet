@@ -1,6 +1,6 @@
-package com.example.data
+package com.example.data.repositories
 
-import com.example.domain.AuthRepository
+import com.example.domain.repositories.AuthRepository
 import javax.inject.Inject
 
 class AuthRepositoryImpl @Inject constructor() : AuthRepository {

@@ -66,7 +66,7 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":domain"))
     implementation(project(":data"))
-
+    implementation(project(":core-network"))
     //dagger
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)

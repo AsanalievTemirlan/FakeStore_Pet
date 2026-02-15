@@ -1,4 +1,5 @@
-package com.example.domain
+package com.example.domain.repositories
+
 interface AuthRepository {
     fun login()
 }
