@@ -1,15 +1,23 @@
-*.iml
-.gradle
-/local.properties
-/.idea/caches
-/.idea/libraries
-/.idea/modules.xml
-/.idea/workspace.xml
-/.idea/navEditor.xml
-/.idea/assetWizardSettings.xml
+# Ignore IDE files  
+*.iml  
+.idea/  
+.idea/caches/  
+.idea/libraries/  
+.idea/modules.xml  
+.idea/workspace.xml  
+.idea/navEditor.xml  
+.idea/assetWizardSettings.xml  
+  
+# Gradle files  
+.gradle/  
+build/  
+.cxx/  
+.externalNativeBuild/  
+captures/  
+  
+# Local config files  
+local.properties  
+/local.properties  
+  
+# Mac OS system files  
 .DS_Store
-/build
-/captures
-.externalNativeBuild
-.cxx
-local.properties
