@@ -14,6 +14,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
+import com.example.core.LogUtil
 import com.example.domain.repositories.ProductsRepository
 import com.example.fakestore.app.App
 import com.example.fakestore.ui.theme.FakeStoreTheme
@@ -43,7 +44,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
         val repo = (context.applicationContext as App)
             .appComponent.productsRepository()
 
-        Log.d("Products", repo.getProducts().toString())
+        LogUtil.d(repo.getProducts().toString())
     }
     Text(
         text = "Hello $name!",

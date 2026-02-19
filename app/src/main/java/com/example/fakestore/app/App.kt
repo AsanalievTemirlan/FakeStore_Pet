@@ -8,9 +8,6 @@ import javax.inject.Inject
 
 class App : Application() {
 
-    @Inject
-    lateinit var productsRepository: ProductsRepository
-
     lateinit var appComponent: AppComponent
         private set
 
