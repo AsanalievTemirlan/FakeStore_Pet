@@ -1,14 +1,13 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.kotlin.compose)
     kotlin("kapt")
 }
 
 android {
     namespace = "com.example.catalog"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 26
@@ -31,6 +30,9 @@ android {
         targetCompatibility = JavaVersion.VERSION_11
     }
 
+    buildFeatures {
+        compose = true
+    }
 }
 kotlin {
     compilerOptions {
@@ -55,7 +57,6 @@ dependencies {
     implementation(project(":domain"))
     implementation(project(":core"))
     implementation(libs.androidx.lifecycle.viewmodel.compose)
-
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
 }

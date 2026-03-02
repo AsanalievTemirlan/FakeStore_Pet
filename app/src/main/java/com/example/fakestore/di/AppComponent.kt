@@ -1,10 +1,7 @@
 package com.example.fakestore.di
 
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.viewmodel.ViewModelFactoryDsl
-import com.example.catalog.CatalogPresentationModule
-import com.example.catalog.CatalogViewModelFactory
+import com.example.catalog.CatalogModule
 import com.example.core_network.di.NetworkModule
 import com.example.data.di.ApiModule
 import com.example.data.di.RepositoryModule
@@ -14,9 +11,14 @@ import javax.inject.Singleton
 
 @Singleton
 @Component(
-    modules = [RepositoryModule::class, NetworkModule::class,
-        ApiModule::class, UseCaseModule::class,
-        CatalogPresentationModule::class]
+    modules = [
+        RepositoryModule::class,
+        NetworkModule::class,
+        ApiModule::class,
+        UseCaseModule::class,
+        CatalogModule::class,
+        ViewModelModule::class
+    ]
 )
 interface AppComponent {
     fun inject(app: App)
