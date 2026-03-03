@@ -4,8 +4,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.catalog.CatalogScreen
 import com.example.fakestore.app.App
+import com.example.fakestore.navigation.AppNavHost
 import com.example.fakestore.ui.theme.FakeStoreTheme
 
 class MainActivity : ComponentActivity() {
@@ -17,7 +17,7 @@ class MainActivity : ComponentActivity() {
         
         setContent {
             FakeStoreTheme {
-                CatalogScreen(factory = appComponent.viewModelFactory())
+                AppNavHost(viewModelFactory = appComponent.viewModelFactory())
             }
         }
     }

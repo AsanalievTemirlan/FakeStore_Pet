@@ -1,6 +1,8 @@
-package com.example.catalog
+package com.example.catalog.di
 
 import androidx.lifecycle.ViewModel
+import com.example.catalog.catalogScreen.CatalogViewModel
+import com.example.catalog.singleProductScreen.SingleProductViewModel
 import com.example.core.ViewModelKey
 import dagger.Binds
 import dagger.Module
@@ -12,4 +14,9 @@ interface CatalogModule {
     @IntoMap
     @ViewModelKey(CatalogViewModel::class)
     fun bindCatalogViewModel(viewModel: CatalogViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SingleProductViewModel::class)
+    fun bindSingleProductViewModel(viewModel: SingleProductViewModel): ViewModel
 }

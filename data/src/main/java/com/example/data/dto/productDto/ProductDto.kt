@@ -1,6 +1,6 @@
-package com.example.data.dto
+package com.example.data.dto.productDto
 
-import com.example.domain.models.ProductModel
+import com.example.domain.models.product.ProductModel
 
 class ProductDto : ArrayList<ProductDtoItem>()
 

@@ -1,8 +1,9 @@
 package com.example.data.repositories
 
 import com.example.data.apis.ProductApi
-import com.example.data.dto.toDomain
-import com.example.domain.models.ProductModel
+import com.example.data.dto.productDto.toDomain
+import com.example.domain.models.product.ProductModel
+import com.example.domain.models.product.ProductModelItem
 import com.example.domain.repositories.ProductsRepository
 import javax.inject.Inject
 
@@ -17,6 +18,17 @@ class ProductsRepositoryImpl @Inject constructor(
         ) {
             Result.failure(e)
         }
+    }
+
+    override suspend fun getSingleProduct(id: Int): Result<ProductModelItem> {
+        return try {
+            return Result.success(productsApi.getSingleProduct(id).toDomain())
+        } catch (
+            e: Exception
+        ) {
+            Result.failure(e)
+        }
+
     }
 
 }

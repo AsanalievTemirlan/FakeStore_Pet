@@ -2,6 +2,7 @@ package com.example.fakestore.di
 
 import com.example.domain.repositories.ProductsRepository
 import com.example.domain.usecases.GetProductsUseCase
+import com.example.domain.usecases.GetSingleProductUseCase
 import dagger.Module
 import dagger.Provides
 
@@ -13,4 +14,10 @@ class UseCaseModule {
         repository: ProductsRepository
     ): GetProductsUseCase =
         GetProductsUseCase(repository)
+
+    @Provides
+    fun provideGetSingleProductUseCase(
+        repository: ProductsRepository
+    ): GetSingleProductUseCase =
+        GetSingleProductUseCase(repository)
 }

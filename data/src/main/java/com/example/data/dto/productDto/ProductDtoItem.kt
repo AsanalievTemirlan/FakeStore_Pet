@@ -1,7 +1,7 @@
-package com.example.data.dto
+package com.example.data.dto.productDto
 
 
-import com.example.domain.models.ProductModelItem
+import com.example.domain.models.product.ProductModelItem
 import com.google.gson.annotations.SerializedName
 
 data class ProductDtoItem(
@@ -16,7 +16,9 @@ data class ProductDtoItem(
     @SerializedName("price")
     val price: Double,
     @SerializedName("title")
-    val title: String
+    val title: String,
+    @SerializedName("rating")
+    val rating: RatingDto,
 )
 
 fun ProductDtoItem.toDomain() =
@@ -26,5 +28,6 @@ fun ProductDtoItem.toDomain() =
         id = id,
         image = image,
         price = price,
-        title = title
+        title = title,
+        rating = rating.toDomain()
     )

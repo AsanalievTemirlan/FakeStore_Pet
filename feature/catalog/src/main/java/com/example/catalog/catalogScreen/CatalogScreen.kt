@@ -1,4 +1,4 @@
-package com.example.catalog
+package com.example.catalog.catalogScreen
 
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,17 +9,15 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.ViewModelProvider
-import androidx.lifecycle.ViewModelStoreOwner
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.core.LogUtil
 
 @Composable
 fun CatalogScreen(
-    factory: ViewModelProvider.Factory
+    factory: ViewModelProvider.Factory,
+    onProductClick: (Int) -> Unit
 ) {
-    val owner = LocalContext.current as ViewModelStoreOwner
     val viewModel: CatalogViewModel = viewModel(factory = factory)
     val products by viewModel.products.collectAsState()
 
@@ -29,6 +27,7 @@ fun CatalogScreen(
     ) {
         Button(onClick = {
             LogUtil.d("Products: $products")
+            onProductClick(1)
         }) {
             Text(text = "Show Products Log")
         }

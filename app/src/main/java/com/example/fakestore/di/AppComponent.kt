@@ -1,7 +1,7 @@
 package com.example.fakestore.di
 
 import androidx.lifecycle.ViewModelProvider
-import com.example.catalog.CatalogModule
+import com.example.catalog.di.CatalogModule
 import com.example.core_network.di.NetworkModule
 import com.example.data.di.ApiModule
 import com.example.data.di.RepositoryModule

@@ -1,9 +1,9 @@
-package com.example.catalog
+package com.example.catalog.catalogScreen
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.core.LogUtil
-import com.example.domain.models.ProductModel
+import com.example.domain.models.product.ProductModel
 import com.example.domain.usecases.GetProductsUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow

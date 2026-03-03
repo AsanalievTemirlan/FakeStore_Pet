@@ -1,4 +1,4 @@
-package com.example.domain.models
+package com.example.domain.models.product
 
 data class ProductModelItem(
     val category: String,
@@ -6,5 +6,6 @@ data class ProductModelItem(
     val id: Int,
     val image: String,
     val price: Double,
-    val title: String
+    val title: String,
+    val rating: RatingModel
 )
