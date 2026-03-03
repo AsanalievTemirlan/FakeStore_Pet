@@ -26,7 +26,9 @@ fun AppNavHost(
         composable<SingleProductRoute> { backStackEntry ->
             val productId = backStackEntry.arguments?.getInt("productId")
             if (productId != null) {
-                SingleProductScreen(viewModelFactory, productId)
+                SingleProductScreen(viewModelFactory, productId){
+                    navController.popBackStack()
+                }
             }
         }
     }

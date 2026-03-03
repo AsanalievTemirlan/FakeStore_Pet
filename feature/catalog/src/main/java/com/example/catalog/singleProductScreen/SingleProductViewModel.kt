@@ -1,8 +1,8 @@
 package com.example.catalog.singleProductScreen
 
-import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.core.LogUtil
 import com.example.core.UiState
 import com.example.domain.models.product.ProductModelItem
 import com.example.domain.usecases.GetSingleProductUseCase
@@ -21,14 +21,19 @@ class SingleProductViewModel @Inject constructor(
     val product = _product.asStateFlow()
 
 
-    suspend fun getProduct(id: Int) {
-        getSingleProductUseCase(id).fold(
-            onSuccess = { data ->
-                _product.value = UiState.Success(data)
-            },
-            onFailure = { error ->
-                _product.value = UiState.Error(error.message ?: "Unknown error")
-            }
-        )
+    fun getProduct(id: Int) {
+        viewModelScope.launch {
+            _product.value = UiState.Loading
+            LogUtil.d("id: $id")
+            getSingleProductUseCase(id).fold(
+                onSuccess = { data ->
+                    LogUtil.d("data: $data")
+                    _product.value = UiState.Success(data)
+                },
+                onFailure = { error ->
+                    _product.value = UiState.Error(error.message ?: "Unknown error")
+                }
+            )
+        }
     }
 }

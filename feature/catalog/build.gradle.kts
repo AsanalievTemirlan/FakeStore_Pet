@@ -54,9 +54,12 @@ dependencies {
     implementation(libs.androidx.compose.ui.graphics)
     implementation(libs.androidx.compose.ui.tooling.preview)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.compose.material.icons.core)
+    implementation(libs.androidx.compose.material.icons.extended)
     implementation(project(":domain"))
     implementation(project(":core"))
     implementation(libs.androidx.lifecycle.viewmodel.compose)
     implementation(libs.dagger)
     kapt(libs.dagger.compiler)
+    implementation(libs.coil.compose)
 }
