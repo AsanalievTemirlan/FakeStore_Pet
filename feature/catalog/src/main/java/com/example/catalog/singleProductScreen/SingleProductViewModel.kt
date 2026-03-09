@@ -4,7 +4,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.core.LogUtil
 import com.example.core.UiState
+import com.example.domain.models.CartItem
 import com.example.domain.models.product.ProductModelItem
+import com.example.domain.usecases.AddToCartUseCase
 import com.example.domain.usecases.GetSingleProductUseCase
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -13,6 +15,7 @@ import javax.inject.Inject
 
 class SingleProductViewModel @Inject constructor(
     private val getSingleProductUseCase: GetSingleProductUseCase,
+    private val addToCartUseCase: AddToCartUseCase
 ) : ViewModel() {
 
     private val _product =
@@ -34,6 +37,12 @@ class SingleProductViewModel @Inject constructor(
                     _product.value = UiState.Error(error.message ?: "Unknown error")
                 }
             )
+        }
+    }
+
+    fun add(cartItem: CartItem) {
+        viewModelScope.launch {
+            addToCartUseCase(cartItem)
         }
     }
 }

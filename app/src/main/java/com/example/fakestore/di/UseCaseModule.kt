@@ -20,4 +20,6 @@ class UseCaseModule {
         repository: ProductsRepository
     ): GetSingleProductUseCase =
         GetSingleProductUseCase(repository)
+
+
 }

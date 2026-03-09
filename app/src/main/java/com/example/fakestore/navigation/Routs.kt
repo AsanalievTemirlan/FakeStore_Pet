@@ -7,4 +7,8 @@ import kotlinx.serialization.Serializable
 object CatalogRoute
 
 @Serializable
+object CartRoute{
+}
+
+@Serializable
 data class SingleProductRoute(val productId: Int)

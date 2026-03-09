@@ -1,7 +1,7 @@
 package com.example.data.repositories
 
-import com.example.data.apis.ProductApi
-import com.example.data.dto.productDto.toDomain
+import com.example.data.network.apis.ProductApi
+import com.example.data.network.dto.productDto.toDomain
 import com.example.domain.models.product.ProductModel
 import com.example.domain.models.product.ProductModelItem
 import com.example.domain.repositories.ProductsRepository

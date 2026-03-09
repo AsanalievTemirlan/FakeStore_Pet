@@ -1,4 +1,4 @@
-package com.example.data.dto.productDto
+package com.example.data.network.dto.productDto
 
 
 import com.example.domain.models.product.RatingModel

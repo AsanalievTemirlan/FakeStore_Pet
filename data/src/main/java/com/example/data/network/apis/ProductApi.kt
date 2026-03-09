@@ -1,8 +1,8 @@
-package com.example.data.apis
+package com.example.data.network.apis
 
-import com.example.data.Endpoints
-import com.example.data.dto.productDto.ProductDto
-import com.example.data.dto.productDto.ProductDtoItem
+import com.example.data.network.Endpoints
+import com.example.data.network.dto.productDto.ProductDto
+import com.example.data.network.dto.productDto.ProductDtoItem
 import retrofit2.http.GET
 import retrofit2.http.Path
 

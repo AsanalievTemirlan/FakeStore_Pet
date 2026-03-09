@@ -6,9 +6,7 @@ plugins {
 
 android {
     namespace = "com.example.data"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
         minSdk = 26
@@ -54,4 +52,10 @@ dependencies {
     implementation(libs.retrofit.converter.gson)
 
     implementation(libs.gson)
+    implementation(libs.androidx.datastore.preferences)
+
+    // Room
+    implementation(libs.androidx.room.runtime)
+    implementation(libs.androidx.room.ktx)
+    kapt(libs.androidx.room.compiler)
 }

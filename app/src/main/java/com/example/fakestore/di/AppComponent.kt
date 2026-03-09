@@ -4,8 +4,10 @@ import androidx.lifecycle.ViewModelProvider
 import com.example.catalog.di.CatalogModule
 import com.example.core_network.di.NetworkModule
 import com.example.data.di.ApiModule
+import com.example.data.di.DataBaseModule
 import com.example.data.di.RepositoryModule
 import com.example.fakestore.app.App
+import com.example.feature_cart.di.CartModule
 import dagger.Component
 import javax.inject.Singleton
 
@@ -17,7 +19,9 @@ import javax.inject.Singleton
         ApiModule::class,
         UseCaseModule::class,
         CatalogModule::class,
-        ViewModelModule::class
+        ViewModelModule::class,
+        DataBaseModule::class,
+        CartModule::class
     ]
 )
 interface AppComponent {

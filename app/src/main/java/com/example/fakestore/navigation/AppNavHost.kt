@@ -7,6 +7,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.catalog.catalogScreen.CatalogScreen
 import com.example.catalog.singleProductScreen.SingleProductScreen
+import com.example.feature_cart.CartScreen
 
 @Composable
 fun AppNavHost(
@@ -19,9 +20,15 @@ fun AppNavHost(
         startDestination = CatalogRoute
     ) {
         composable<CatalogRoute> {
-            CatalogScreen(factory = viewModelFactory){
-                navController.navigate(SingleProductRoute(it))
-            }
+            CatalogScreen(
+                factory = viewModelFactory,
+                onProductClick = { productId ->
+                    navController.navigate(SingleProductRoute(productId))
+                },
+                onCartClick = {
+                    navController.navigate(CartRoute)
+                }
+            )
         }
         composable<SingleProductRoute> { backStackEntry ->
             val productId = backStackEntry.arguments?.getInt("productId")
@@ -30,6 +37,9 @@ fun AppNavHost(
                     navController.popBackStack()
                 }
             }
+        }
+        composable<CartRoute> {
+            CartScreen(viewModelFactory)
         }
     }
 }
